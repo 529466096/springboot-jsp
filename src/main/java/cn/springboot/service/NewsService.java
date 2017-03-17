@@ -2,7 +2,8 @@ package cn.springboot.service;
 
 import java.util.List;
 
-import cn.springboot.common.util.Page;
+import com.github.pagehelper.PageInfo;
+
 import cn.springboot.model.simple.News;
 
 
@@ -13,10 +14,18 @@ import cn.springboot.model.simple.News;
  */
 public interface NewsService {
 
-    public void addNews(News news);
+    public boolean addNews(News news);
+    
+    public boolean editNews(News news);
+    
+    public News findNewsById(String newsId);
 
     public List<News> findNewsByKeywords(String keywords);
 
-    public Page<News> findNewsByPage(Page<News> page,String keywords);
+    public PageInfo<News> findNewsByPage(String keywords);
+
+    public List<News> findNewsByKeywords1(String keywords);
+    
+    public List<News> findNewsByKeywords2(String keywords);
 
 }

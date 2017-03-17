@@ -7,26 +7,24 @@ import javax.sql.DataSource;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
 /** 
- * @Description Druid数据源配置
+ * @Description Druid单数据源配置
  * @author 王鑫 
  * @date Mar 16, 2017 5:18:24 PM  
  */
-@Configuration
-@EnableTransactionManagement
+//@Configuration
+//@EnableTransactionManagement
 public class DruidAutoConfiguration implements EnvironmentAware {
 
     private RelaxedPropertyResolver propertyResolver;
 
     @Override
     public void setEnvironment(Environment env) {
-        this.propertyResolver = new RelaxedPropertyResolver(env, "druid.");
+        this.propertyResolver = new RelaxedPropertyResolver(env, "druid.datasource.");
     }
 
     @Bean(destroyMethod = "close", initMethod = "init")

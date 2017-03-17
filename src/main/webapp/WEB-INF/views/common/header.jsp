@@ -16,6 +16,9 @@
 					<ul class="dropdown-menu">
 						<li id="news"><a href="${ctx }/news">发布新闻</a></li>
 						<li id="news_list"><a href="${ctx }/news/list">新闻列表</a></li>
+						<li id="news_list"><a href="${ctx }/news/list">默认数据库</a></li>
+						<li id="news_list"><a href="${ctx }/news/list/1">数据库1</a></li>
+						<li id="news_list"><a href="${ctx }/news/list/2">数据库2</a></li>
 					</ul></li>
 
 			</ul>

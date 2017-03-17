@@ -2,20 +2,26 @@ package cn.springboot.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.github.pagehelper.PageInfo;
 
 import cn.springboot.model.simple.News;
 import cn.springboot.service.NewsService;
@@ -27,7 +33,7 @@ import cn.springboot.service.NewsService;
  */
 @Controller
 public class NewsController {
-    
+
     private static final Logger log = LoggerFactory.getLogger(NewsController.class);
 
     @Autowired
@@ -43,31 +49,107 @@ public class NewsController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
 
-    @RequestMapping("index")
-    public String home() {
-        log.info("# 进入首页");
-        return "index";
+    /** 
+     * @Description 进入新增页面
+     * @author 王鑫
+     * @return  
+     */
+    @RequestMapping(value = "/news/add", method = RequestMethod.GET)
+    public String add() {
+        log.info("# 进入发布新闻页面");
+        return "view/news/add";
     }
 
-    @RequestMapping(value = "/news", method = RequestMethod.GET)
-    public String addNews() {
-        return "news/news";
+    /** 
+     * @Description ajax保存发布新闻
+     * @author 王鑫
+     * @param news
+     * @return  
+     */
+    @RequestMapping(value = "/news/add", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> add(@ModelAttribute("newsForm") News news) {
+        boolean flag = newsService.addNews(news);
+        Map<String, String> result = new HashMap<>();
+        if (flag) {
+            result.put("status", "1");
+            result.put("msg", "发布成功");
+        } else {
+            result.put("status", "0");
+            result.put("msg", "发布失败");
+        }
+        return result;
+    }
+    
+    /** 
+     * @Description ajax加载新闻对象
+     * @author 王鑫
+     * @return  
+     */
+    @RequestMapping(value = "/news/load/{id}", method = RequestMethod.GET)
+    public String load(@PathVariable String id,ModelMap map) {
+        log.info("# ajax加载新闻对象");
+        News news = newsService.findNewsById(id);
+        map.addAttribute("news", news);
+        return "view/news/edit_form";
     }
 
-    @RequestMapping(value = "/news", method = RequestMethod.POST)
-    public String add(@ModelAttribute("newsForm") News news) {
-        newsService.addNews(news);
-        return "news/news_list";
+    /**
+     * @Description ajax保存更新重新发布新闻
+     * @author 王鑫
+     * @param news
+     * @return
+     */
+    @RequestMapping(value = "/news/edit", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> edit(@ModelAttribute("newsForm") News news) {
+        boolean flag = newsService.editNews(news);
+        Map<String, String> result = new HashMap<>();
+        if (flag) {
+            result.put("status", "1");
+            result.put("msg", "发布成功");
+        } else {
+            result.put("status", "0");
+            result.put("msg", "发布失败");
+        }
+        return result;
     }
 
     @RequestMapping(value = "/news/list", method = RequestMethod.GET)
-    public String search() {
-        return "news/news_list";
+    public String list(ModelMap map) {
+        PageInfo<News> page = newsService.findNewsByPage(null);
+        map.put("page", page);
+        return "view/news/list";
     }
 
-    @RequestMapping(value = "/news/list", method = RequestMethod.POST)
-    @ResponseBody
-    public List<News> search(@RequestParam(value = "keywords", required = false) String keywords) {
-        return newsService.findNewsByKeywords(keywords);
+    @RequestMapping(value = "/news/list_page/{keywords}", method = RequestMethod.GET)
+    public String list(@PathVariable(value = "keywords", required = false) String keywords, ModelMap map) {
+        log.info("#分页查询新闻");
+        PageInfo<News> page = newsService.findNewsByPage(keywords);
+        map.put("page", page);
+        return "view/news/list_page";
     }
+
+    @RequestMapping(value = "/news/list/1", method = RequestMethod.GET)
+    public String list1() {
+        return "news/news_list1";
+    }
+
+    @RequestMapping(value = "/news/list/1", method = RequestMethod.POST)
+    @ResponseBody
+    public List<News> list1(@RequestParam(value = "keywords", required = false) String keywords) {
+        return newsService.findNewsByKeywords1(keywords);
+    }
+
+    @RequestMapping(value = "/news/list/2", method = RequestMethod.GET)
+    public String list2() {
+        return "news/news_list2";
+    }
+
+    @RequestMapping(value = "/news/list/2", method = RequestMethod.POST)
+    @ResponseBody
+    public List<News> listw(@RequestParam(value = "keywords", required = false) String keywords) {
+        return newsService.findNewsByKeywords2(keywords);
+    }
+
 }
