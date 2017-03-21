@@ -172,11 +172,14 @@
 
       //查询新闻
       $("#queryNewsBtn").click(function() {
-        //ibox
-        var keywords = $("#keywords").val();
-        $(".ibox").load(_ctx + '/news/list_page/'+keywords);
-
+        list_page();
       });
+
+      // 分页查询
+      function list_page() {
+        var keywords = $("#keywords").val();
+        $(".ibox").load(_ctx + '/news/list_page/' + keywords);
+      }
 
       function editForm(form) {
         $.ajax({
@@ -185,8 +188,9 @@
           data: $(form).serialize(),
           success: function(data) {
             if (data.status == '1') {
+              list_page();//保存成功，刷新数据
               toastr.success('', data.msg);
-
+              $('#edit').modal('hide');//关闭编辑窗口
             } else
               toastr.error('', data.msg);
           },
@@ -200,9 +204,7 @@
       $("#edit").on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget);
         var id = button.data("id");
-        console.log("newsId=" + id);
-        $("#newsForm").load(_ctx + '/news/load/' + id);
-        //alert("id = " + id);
+        $("#newsForm").load(_ctx + '/news/load/' + id);//加载待编辑数据
       });
     });
   </script>

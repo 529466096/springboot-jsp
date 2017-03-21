@@ -80,14 +80,14 @@ public class NewsController {
         }
         return result;
     }
-    
+
     /** 
      * @Description ajax加载新闻对象
      * @author 王鑫
      * @return  
      */
     @RequestMapping(value = "/news/load/{id}", method = RequestMethod.GET)
-    public String load(@PathVariable String id,ModelMap map) {
+    public String load(@PathVariable String id, ModelMap map) {
         log.info("# ajax加载新闻对象");
         News news = newsService.findNewsById(id);
         map.addAttribute("news", news);
@@ -122,8 +122,16 @@ public class NewsController {
         return "view/news/list";
     }
 
+    @RequestMapping(value = "/news/list_page/", method = RequestMethod.GET)
+    public String list_page(ModelMap map) {
+        log.info("#分页查询新闻");
+        PageInfo<News> page = newsService.findNewsByPage(null);
+        map.put("page", page);
+        return "view/news/list_page";
+    }
+
     @RequestMapping(value = "/news/list_page/{keywords}", method = RequestMethod.GET)
-    public String list(@PathVariable(value = "keywords", required = false) String keywords, ModelMap map) {
+    public String list_page(@PathVariable(value = "keywords", required = false) String keywords, ModelMap map) {
         log.info("#分页查询新闻");
         PageInfo<News> page = newsService.findNewsByPage(keywords);
         map.put("page", page);
