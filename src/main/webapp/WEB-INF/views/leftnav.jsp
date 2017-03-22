@@ -2,12 +2,12 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <div class="sidebar-scroll">
 	<div class="logo">
-		<a href="index.html"><img src="${ctx}/static/images/logo_icon.png" alt="">屋瓴云</a>
+		<a href="index.html"><img src="${ctx}/static/images/logo_icon.png" alt="">示例系统</a>
 	</div>
 	<div class="sidebar-collapse">
 		<div class="nav-header" id="side-head">
 			<div class="dropdown profile-element text-center">
-				<span><img alt="image" class="img-circle " src="${ctx}/static/img/profile_small.jpg" /></span> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">小羊羊案场经理</strong></span>
+				<span><img alt="image" class="img-circle " src="${ctx}/static/img/profile_small.jpg" /></span> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Jack</strong></span>
 						<span class="text-muted text-xs block">用户设置<b class="caret"></b></span>
 				</span> </a>
 				<ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -37,79 +37,79 @@
 					<li><a href="${ctx }/view/city/add2">添加城市</a></li>
 					<li><a href="${ctx }/view/city/list">城市列表</a></li>
 				</ul></li>
-			<li><a href="http://demo.dev.wuling.me/view/user/user_list.html"><i class="fa fa-user"></i> <span class="nav-label">账号管理 </span></a></li>
+			<li><a href="${ctx }/view/user/user_list"><i class="fa fa-user"></i> <span class="nav-label">账号管理 </span></a></li>
 
 			<li><a href="http://demo.dev.wuling.me/view/project/list.html"><i class="fa fa-building"></i> <span class="nav-label">楼盘管理</span> <span class="pull-right label label-warning">234</span></a>
 				<ul class="nav nav-second-level collapse">
-					<li><a href="http://demo.dev.wuling.me/view/project/openProject.html"><i class="fa fa-plus"></i> 开通楼盘</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/project/list.html"><i class="fa fa-pencil"></i> 楼盘审核</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/project/manager_list.html"><i class="fa fa-building"></i> 楼盘管理</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/project/edit_list.html"><i class="fa fa-slideshare"></i>合作楼盘</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/project/add.html"><i class="fa fa-plus"></i> 添加楼盘 <span class="fa arrow"></span></a>
+					<li><a href="${ctx }/view/project/openProject"><i class="fa fa-plus"></i> 开通楼盘</a></li>
+					<li><a href="${ctx }/view/project/list"><i class="fa fa-pencil"></i> 楼盘审核</a></li>
+					<li><a href="${ctx }/view/project/manager_list"><i class="fa fa-building"></i> 楼盘管理</a></li>
+					<li><a href="${ctx }/view/project/edit_list"><i class="fa fa-slideshare"></i>合作楼盘</a></li>
+					<li><a href="${ctx }/view/project/add"><i class="fa fa-plus"></i> 添加楼盘 <span class="fa arrow"></span></a>
 						<ul class="nav nav-third-level">
-							<li><a href="http://demo.dev.wuling.me/view/project/add.html"><i class="fa fa-file-text-o"></i> 基本信息</a></li>
-							<li><a href="http://demo.dev.wuling.me/view/project/add2.html"><i class="fa fa-puzzle-piece"></i> 户型管理</a></li>
-							<li><a href="http://demo.dev.wuling.me/view/project/add3.html"><i class="fa fa-picture-o"></i> 楼盘相册</a></li>
-							<li><a href="http://demo.dev.wuling.me/view/project/add4.html"><i class="fa fa-sort-numeric-asc"></i> 销控管理</a></li>
-							<li><a href="http://demo.dev.wuling.me/view/project/add5.html"><i class="fa fa-slideshare"></i> 合作信息</a></li>
-							<li><a href="http://demo.dev.wuling.me/view/project/add6.html"><i class="fa fa-share-alt"></i> 产品维护</a></li>
-							<li><a href="http://demo.dev.wuling.me/view/project/add7.html"><i class="fa fa-dollar"></i> 拥金维护</a></li>
-							<li><a href="http://demo.dev.wuling.me/view/project/add8.html"><i class="fa fa-list-alt"></i> 楼盘动态</a></li>
-							<li><a href="http://demo.dev.wuling.me/view/project/add9.html"><i class="fa fa-heart"></i> 优惠活动</a></li>
+							<li><a href="${ctx }/view/project/add"><i class="fa fa-file-text-o"></i> 基本信息</a></li>
+							<li><a href="${ctx }/view/project/add2"><i class="fa fa-puzzle-piece"></i> 户型管理</a></li>
+							<li><a href="${ctx }/view/project/add3"><i class="fa fa-picture-o"></i> 楼盘相册</a></li>
+							<li><a href="${ctx }/view/project/add4"><i class="fa fa-sort-numeric-asc"></i> 销控管理</a></li>
+							<li><a href="${ctx }/view/project/add5"><i class="fa fa-slideshare"></i> 合作信息</a></li>
+							<li><a href="${ctx }/view/project/add6"><i class="fa fa-share-alt"></i> 产品维护</a></li>
+							<li><a href="${ctx }/view/project/add7"><i class="fa fa-dollar"></i> 拥金维护</a></li>
+							<li><a href="${ctx }/view/project/add8"><i class="fa fa-list-alt"></i> 楼盘动态</a></li>
+							<li><a href="${ctx }/view/project/add9"><i class="fa fa-heart"></i> 优惠活动</a></li>
 						</ul></li>
 				</ul></li>
 
 			<li><a href="#"><i class="fa fa-group"></i> <span class="nav-label">经济公司/经纪人</span> <span class="pull-right label label-primary">206</span></a>
 				<ul class="nav nav-second-level collapse">
-					<li><a href="http://demo.dev.wuling.me/view/firm/list.html"><i class="fa fa-vine"></i> 经纪公司维护</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agent/list.html"><i class="fa fa-group"></i> 经纪人管理</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agent/list.html"><i class="fa fa-newspaper-o"></i> 经纪人实名认证</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agent/list.html"><i class="fa fa-credit-card"></i> 经纪人银行卡认证</a></li>
+					<li><a href="${ctx }/view/firm/list"><i class="fa fa-vine"></i> 经纪公司维护</a></li>
+					<li><a href="${ctx }/view/agent/list"><i class="fa fa-group"></i> 经纪人管理</a></li>
+					<li><a href="${ctx }/view/agent/list"><i class="fa fa-newspaper-o"></i> 经纪人实名认证</a></li>
+					<li><a href="${ctx }/view/agent/list"><i class="fa fa-credit-card"></i> 经纪人银行卡认证</a></li>
 				</ul></li>
 
 			<li><a href="#"><i class="fa fa-user-md"></i> <span class="nav-label">置业顾问管理</span> <span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level collapse">
-					<li><a href="http://demo.dev.wuling.me/view/adviserProject/adviserAuditList.html"><i class="fa fa-stumbleupon"></i> 置业顾问挂靠审核</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/adviser/list.html"><i class="fa fa-user-md"></i> 置业顾问管理</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agent/list.html"><i class="fa fa-newspaper-o"></i> 置业顾问实名认证</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agent/list.html"><i class="fa fa-credit-card"></i> 置业顾问银行卡认证</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agent/list.html"><i class="fa fa-database"></i> 置业顾问元宝提现</a></li>
+					<li><a href="${ctx }/view/adviserProject/adviserAuditList"><i class="fa fa-stumbleupon"></i> 置业顾问挂靠审核</a></li>
+					<li><a href="${ctx }/view/adviser/list"><i class="fa fa-user-md"></i> 置业顾问管理</a></li>
+					<li><a href="${ctx }/view/agent/list"><i class="fa fa-newspaper-o"></i> 置业顾问实名认证</a></li>
+					<li><a href="${ctx }/view/agent/list"><i class="fa fa-credit-card"></i> 置业顾问银行卡认证</a></li>
+					<li><a href="${ctx }/view/agent/list"><i class="fa fa-database"></i> 置业顾问元宝提现</a></li>
 				</ul></li>
 
 			<li><a href="#"><i class="fa fa-credit-card"></i> <span class="nav-label">POS交易管理</span><span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level collapse">
-					<li><a href="http://demo.dev.wuling.me/view/pos/bind.html"><i class="fa fa-unlock-alt"></i> POS机绑定</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/pos/list.html"><i class="fa fa-link"></i> POS绑定信息</a></li>
-					<li><a href="http://demo.dev.wuling.me/view/pos/poslog.html"><i class="fa fa-legal"></i> <span class="nav-label">POS交易信息</span><span class="label label-info pull-right">45</span></a></li>
+					<li><a href="${ctx }/view/pos/bind"><i class="fa fa-unlock-alt"></i> POS机绑定</a></li>
+					<li><a href="${ctx }/view/pos/list"><i class="fa fa-link"></i> POS绑定信息</a></li>
+					<li><a href="${ctx }/view/pos/poslog"><i class="fa fa-legal"></i> <span class="nav-label">POS交易信息</span><span class="label label-info pull-right">45</span></a></li>
 				</ul></li>
 
 			<li><a href="#"><i class="fa fa-pie-chart"></i> <span class="nav-label">数据统计 </span><span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level collapse">
-					<li><a href="http://demo.dev.wuling.me/view/data/statIncome_data.html"><i class="fa fa-user"></i> <span class="nav-label"> 用户统计 </span></a></li>
-					<li><a href="http://demo.dev.wuling.me/view/data/statIncome_data.html"><i class="fa fa-group"></i> <span class="nav-label">客户统计 </span></a></li>
-					<li><a href="http://demo.dev.wuling.me/view/data/statIncome_data.html"><i class="fa fa-line-chart"></i> <span class="nav-label">收入统计 </span></a></li>
-					<li><a href="http://demo.dev.wuling.me/view/data/statIncome_data.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">佣金统计 </span></a></li>
+					<li><a href="${ctx }/view/data/statIncome_data"><i class="fa fa-user"></i> <span class="nav-label"> 用户统计 </span></a></li>
+					<li><a href="${ctx }/view/data/statIncome_data"><i class="fa fa-group"></i> <span class="nav-label">客户统计 </span></a></li>
+					<li><a href="${ctx }/view/data/statIncome_data"><i class="fa fa-line-chart"></i> <span class="nav-label">收入统计 </span></a></li>
+					<li><a href="${ctx }/view/data/statIncome_data"><i class="fa fa-pie-chart"></i> <span class="nav-label">佣金统计 </span></a></li>
 
 				</ul></li>
 
 			<li><a href="#"><i class="fa fa-edit"></i> <span class="nav-label">合同管理 </span><span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level collapse">
-					<li><a href="http://demo.dev.wuling.me/view/agreement/list.html"><i class="fa fa-plus"></i> <span class="nav-label">添加/管理列表 </span></a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agreement/rengou.html"><i class="fa fa-mail-forward"></i> <span class="nav-label">转认购</span></a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agreement/qianyue.html"><i class="fa fa-check-square-o"></i> <span class="nav-label">签约 </span></a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agreement/edit.html"><i class="fa fa-edit "></i> <span class="nav-label">合同明细/编辑 </span></a></li>
-					<li><a href="http://demo.dev.wuling.me/view/agreement/view.html"><i class="fa fa-building-o"></i> <span class="nav-label">合同详情 </span></a></li>
+					<li><a href="${ctx }/view/agreement/list"><i class="fa fa-plus"></i> <span class="nav-label">添加/管理列表 </span></a></li>
+					<li><a href="${ctx }/view/agreement/rengou"><i class="fa fa-mail-forward"></i> <span class="nav-label">转认购</span></a></li>
+					<li><a href="${ctx }/view/agreement/qianyue"><i class="fa fa-check-square-o"></i> <span class="nav-label">签约 </span></a></li>
+					<li><a href="${ctx }/view/agreement/edit"><i class="fa fa-edit "></i> <span class="nav-label">合同明细/编辑 </span></a></li>
+					<li><a href="${ctx }/view/agreement/view"><i class="fa fa-building-o"></i> <span class="nav-label">合同详情 </span></a></li>
 				</ul></li>
 
 			<li><a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">总经理 </span><span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level collapse">
-					<li><a href="http://demo.dev.wuling.me/view/data/statIncome_data.html"><i class="fa fa-group"></i> <span class="nav-label">客户统计 </span></a></li>
-					<li><a href="http://demo.dev.wuling.me/view/data/statIncome_data.html"><i class="fa fa-line-chart"></i> <span class="nav-label">收入统计 </span></a></li>
-					<li><a href="http://demo.dev.wuling.me/view/data/statIncome_data.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">佣金统计 </span></a></li>
+					<li><a href="${ctx }/view/data/statIncome_data"><i class="fa fa-group"></i> <span class="nav-label">客户统计 </span></a></li>
+					<li><a href="${ctx }/view/data/statIncome_data"><i class="fa fa-line-chart"></i> <span class="nav-label">收入统计 </span></a></li>
+					<li><a href="${ctx }/view/data/statIncome_data"><i class="fa fa-pie-chart"></i> <span class="nav-label">佣金统计 </span></a></li>
 				</ul></li>
 			<li><a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">经济公司管理员 </span><span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level collapse">
-					<li><a href="http://demo.dev.wuling.me/view/firm/verify.html"><span class="nav-label"><i class="fa fa-slideshare"></i> 合作 </span></a></li>
+					<li><a href="${ctx }/view/firm/verify"><span class="nav-label"><i class="fa fa-slideshare"></i> 合作 </span></a></li>
 					<li><a href="http://demo.dev.wuling.me/view/firm/list2.html"><span class="nav-label"><i class="fa fa-slideshare"></i> 门店列表 </span></a></li>
 					<li><a href="http://demo.dev.wuling.me/view/user/user_list.html"><span class="nav-label"><i class="fa fa-slideshare"></i> 账号管理 </span></a></li>
 					<li><a href="http://demo.dev.wuling.me/view/firm/verify.html"><span class="nav-label"><i class="fa fa-slideshare"></i> 挂靠审核 </span></a></li>
