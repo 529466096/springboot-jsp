@@ -153,6 +153,7 @@
 	<script src="${ctx}/static/js/plugins/validate/jquery.validate.min.js"></script>
 	<!---表单验证--->
 	<script src="${ctx}/static/js/plugins/validate/validate-cn.js"></script>
+	
 	<!---validate 自定义方法--->
 	<script>
     var _ctx = '${ctx}';
