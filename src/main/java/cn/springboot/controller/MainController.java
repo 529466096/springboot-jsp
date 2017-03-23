@@ -19,13 +19,11 @@ public class MainController {
 
     @RequestMapping(value = "leftnav", method = RequestMethod.GET)
     String leftnav() {
-        log.info("# 加载左侧导航");
         return "leftnav";
     }
 
     @RequestMapping(value = "topnav", method = RequestMethod.GET)
     String topnav() {
-        log.info("# 加载顶部导航");
         return "topnav";
     }
     
