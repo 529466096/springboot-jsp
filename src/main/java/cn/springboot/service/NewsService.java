@@ -6,7 +6,6 @@ import com.github.pagehelper.PageInfo;
 
 import cn.springboot.model.simple.News;
 
-
 /** 
  * @Description 新闻接口类
  * @author 王鑫 
@@ -15,17 +14,17 @@ import cn.springboot.model.simple.News;
 public interface NewsService {
 
     public boolean addNews(News news);
-    
+
     public boolean editNews(News news);
-    
+
     public News findNewsById(String newsId);
 
     public List<News> findNewsByKeywords(String keywords);
 
-    public PageInfo<News> findNewsByPage(String keywords);
+    public PageInfo<News> findNewsByPage(Integer pageNum, String keywords);
 
-    public List<News> findNewsByKeywords1(String keywords);
-    
-    public List<News> findNewsByKeywords2(String keywords);
+    public PageInfo<News> findNewsByPage1(Integer pageNum, String keywords);
+
+    public PageInfo<News> findNewsByPage2(Integer pageNum, String keywords);
 
 }

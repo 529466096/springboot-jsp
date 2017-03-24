@@ -3,7 +3,6 @@ package cn.springboot.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -117,47 +116,52 @@ public class NewsController {
 
     @RequestMapping(value = "/news/list", method = RequestMethod.GET)
     public String list(ModelMap map) {
-        PageInfo<News> page = newsService.findNewsByPage(null);
+        PageInfo<News> page = newsService.findNewsByPage(null, null);
         map.put("page", page);
         return "view/news/list";
     }
 
-    @RequestMapping(value = "/news/list_page/", method = RequestMethod.GET)
-    public String list_page(ModelMap map) {
-        log.info("#分页查询新闻");
-        PageInfo<News> page = newsService.findNewsByPage(null);
+    @RequestMapping(value = "/news/list_page", method = RequestMethod.POST)
+    public String list_page(@RequestParam(value = "keywords", required = false) String keywords, @RequestParam(value = "pageNum", required = false) Integer pageNum, ModelMap map) {
+        log.info("#分页查询新闻 pageNum={} , keywords={}", pageNum, keywords);
+        PageInfo<News> page = newsService.findNewsByPage(pageNum, keywords);
         map.put("page", page);
+        map.put("keywords", keywords);
         return "view/news/list_page";
     }
 
-    @RequestMapping(value = "/news/list_page/{keywords}", method = RequestMethod.GET)
-    public String list_page(@PathVariable(value = "keywords", required = false) String keywords, ModelMap map) {
-        log.info("#分页查询新闻");
-        PageInfo<News> page = newsService.findNewsByPage(keywords);
+    @RequestMapping(value = "/news/list1", method = RequestMethod.GET)
+    public String list1(ModelMap map) {
+        log.info("#分页查询数据库1");
+        PageInfo<News> page = newsService.findNewsByPage1(null, null);
         map.put("page", page);
-        return "view/news/list_page";
+        return "view/news/list1";
     }
 
-    @RequestMapping(value = "/news/list/1", method = RequestMethod.GET)
-    public String list1() {
-        return "news/news_list1";
+    @RequestMapping(value = "/news/list_page1", method = RequestMethod.POST)
+    public String list_page1(@RequestParam(value = "keywords", required = false) String keywords, @RequestParam(value = "pageNum", required = false) Integer pageNum, ModelMap map) {
+        log.info("#分页查询数据库2 pageNum={} , keywords={}", pageNum, keywords);
+        PageInfo<News> page = newsService.findNewsByPage1(pageNum, keywords);
+        map.put("page", page);
+        map.put("keywords", keywords);
+        return "view/news/list_page1";
     }
 
-    @RequestMapping(value = "/news/list/1", method = RequestMethod.POST)
-    @ResponseBody
-    public List<News> list1(@RequestParam(value = "keywords", required = false) String keywords) {
-        return newsService.findNewsByKeywords1(keywords);
+    @RequestMapping(value = "/news/list2", method = RequestMethod.GET)
+    public String list2(ModelMap map) {
+        log.info("#分页查询数据库2");
+        PageInfo<News> page = newsService.findNewsByPage2(null, null);
+        map.put("page", page);
+        return "view/news/list2";
     }
 
-    @RequestMapping(value = "/news/list/2", method = RequestMethod.GET)
-    public String list2() {
-        return "news/news_list2";
-    }
-
-    @RequestMapping(value = "/news/list/2", method = RequestMethod.POST)
-    @ResponseBody
-    public List<News> listw(@RequestParam(value = "keywords", required = false) String keywords) {
-        return newsService.findNewsByKeywords2(keywords);
+    @RequestMapping(value = "/news/list_page2", method = RequestMethod.POST)
+    public String list_page2(@RequestParam(value = "keywords", required = false) String keywords, @RequestParam(value = "pageNum", required = false) Integer pageNum, ModelMap map) {
+        log.info("#分页查询数据库2 pageNum={} , keywords={}", pageNum, keywords);
+        PageInfo<News> page = newsService.findNewsByPage2(pageNum, keywords);
+        map.put("page", page);
+        map.put("keywords", keywords);
+        return "view/news/list_page2";
     }
 
 }

@@ -14,7 +14,6 @@
 					<th>地址</th>
 					<th>发生时间</th>
 					<th>创建时间</th>
-					<th class="text-right">操作</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,22 +25,14 @@
 							<td>${n.address }</td>
 							<td><fmt:formatDate value="${n.newsTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 							<td><fmt:formatDate value="${n.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-							<td class="text-right text-nowrap">
-								<div class="btn-group ">
-									<button class="btn btn-white btn-sm edit" data-id="${n.id }" data-toggle="modal" data-target="#edit">
-										<i class="fa fa-pencil"></i> 编辑
-									</button>
-								</div>
-							</td>
 						</tr>
 					</c:forEach>
 				</c:if>
 			</tbody>
 		</table>
 	</div>
-	
 	<!-- 分页表单 -->
-	<form action="${ctx }/news/list_page" id="newsPageForm">
+	<form action="${ctx }/news/list_page1" id="newsPageForm">
 		<!-- 查询条件，用隐藏表单域 -->
 		<input type="hidden" value="${keywords }" name="keywords" />
 
@@ -53,5 +44,4 @@
 			<jsp:param name="showPageId" value="ibox" />
 		</jsp:include>
 	</form>
-
 </div>

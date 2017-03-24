@@ -100,7 +100,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="ibox" id="ibox">
-							<jsp:include page="./list_page.jsp" />
+							<jsp:include page="./list_page1.jsp" />
 						</div>
 					</div>
 				</div>
@@ -164,13 +164,6 @@
         checkboxClass: 'icheckbox_minimal-green',
         radioClass: 'iradio_minimal-green',
       });
-      //表单验证
-      $("#newsForm").validate({
-        //debug: true,
-        submitHandler: function(form) {
-          editForm(form);
-        }
-      });
 
       //查询新闻
       $("#queryNewsBtn").click(function() {
@@ -180,34 +173,8 @@
       // 分页查询
       function list_page() {
         var keywords = $("#keywords").val();
-        $("#ibox").load(_ctx + '/news/list_page',{"keywords":keywords});
+        $(".ibox").load(_ctx + '/news/list_page1',{"keywords":keywords});
       }
-
-      function editForm(form) {
-        $.ajax({
-          url: _ctx + "/news/edit",
-          type: "post",
-          data: $(form).serialize(),
-          success: function(data) {
-            if (data.status == '1') {
-              list_page();//保存成功，刷新数据
-              toastr.success('', data.msg);
-              $('#edit').modal('hide');//关闭编辑窗口
-            } else
-              toastr.error('', data.msg);
-          },
-          error: function(data) {
-            toastr.error('', '保存发布失败');
-          }
-        });
-      }
-
-      //验证码在模态框出现前加载
-      $("#edit").on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget);
-        var id = button.data("id");
-        $("#newsForm").load(_ctx + '/news/load/' + id);//加载待编辑数据
-      });
     });
   </script>
 </body>

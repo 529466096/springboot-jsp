@@ -26,8 +26,8 @@
 					<li><a href="${ctx }/news/add"><span class="nav-label">新闻发布</span></a></li>
 					<li><a href="${ctx }/news/list"><span class="nav-label">新闻列表</span></a></li>
 					<li><a href="${ctx }/news/list"><span class="nav-label">默认数据库</span></a></li>
-					<li><a href="${ctx }/news/list/1"><span class="nav-label">数据库1</span></a></li>
-					<li><a href="${ctx }/news/list/2"><span class="nav-label">数据库2</span></a></li>
+					<li><a href="${ctx }/news/list1"><span class="nav-label">数据库1</span></a></li>
+					<li><a href="${ctx }/news/list2"><span class="nav-label">数据库2</span></a></li>
 				</ul></li>
 			<li><a href="${ctx }/view/sysconfig/setconfig"><i class="fa fa-gear"></i> <span class="nav-label">系统配置</span></a></li>
 			<li><a href="${ctx }/view/tenant/tenant-list"><i class="fa fa-desktop"></i> <span class="nav-label">电商管理 </span> <span class="label label-primary pull-right">28</span></a></li>

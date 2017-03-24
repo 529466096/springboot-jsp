@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<link href="${ctx}/static/css/plugins/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
 <input type="hidden" name="id" value="${news.id }" />
 <div class="form-group">
 	<label class="col-sm-4 control-label" for="title">标题 <span class="text-danger">*</span></label>
@@ -23,7 +23,7 @@
 <div class="form-group">
 	<label class="col-sm-4 control-label" for="newsTime">新闻发生时间 <span class="text-danger">*</span></label>
 	<div class="col-sm-8">
-		<input type="text" id="newsTime" name="newsTime" data-date-format="yyyy-mm-dd hh:ii" value='<fmt:formatDate value="${news.newsTime}" pattern="yyyy-MM-dd hh:mm" />' required class="form-control">
+		<input type="text" id="newsTime" name="newsTime" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm',firstDayOfWeek:1,readOnly:true})" value='<fmt:formatDate value="${news.newsTime}" pattern="yyyy-MM-dd hh:mm" />' class="form-control Wdate" required>
 	</div>
 </div>
 <div class="form-group m-t-sm">
@@ -34,11 +34,3 @@
 		<button type="button" class="btn btn-white m-l-sm" data-dismiss="modal">取消</button>
 	</div>
 </div>
-<!--date style-->
-	<script src="${ctx}/static/js/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-	<script src="${ctx}/static/js/plugins/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-<script>
-//   $('#newsTime').datetimepicker({
-//     language: 'zh-CN'
-//   });
-</script>

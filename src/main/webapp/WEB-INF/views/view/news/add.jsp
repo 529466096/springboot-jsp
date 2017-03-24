@@ -18,8 +18,6 @@
 <link href="${ctx}/static/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 <link href="${ctx}/static/css/plugins/chosen/chosen.css" rel="stylesheet">
 <link href="${ctx}/static/css/plugins/fileinput/fileinput.min.css" rel="stylesheet">
-<!--date style-->
-<link href="${ctx}/static/css/plugins/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <link href="${ctx}/static/css/animate.css" rel="stylesheet">
 <link href="${ctx}/static/css/style.css" rel="stylesheet">
 
@@ -81,7 +79,7 @@
 							<div class="form-group">
 								<label class="col-sm-12 col-md-4 col-lg-2 control-label" for="newsTime"><span class="text-danger">*</span>发生时间</label>
 								<div class="col-sm-12 col-md-7 col-lg-9">
-									<input type="text" id="newsTime" name="newsTime" value="" data-date-format="yyyy-mm-dd hh:ii" placeholder="请选择发生时间" class="form-control" required>
+									<input type="text" id="newsTime" name="newsTime" value="" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd HH:mm',firstDayOfWeek:1,readOnly:true})" placeholder="请选择发生时间" class="form-control Wdate" required>
 								</div>
 							</div>
 
@@ -136,8 +134,7 @@
 	<!---文件上传--->
 	<script src="${ctx}/static/js/plugins/fileinput/fileinput_locale_zh.js"></script>
 	<!--date style-->
-	<script src="${ctx}/static/js/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-	<script src="${ctx}/static/js/plugins/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script src="${ctx}/static/js/My97DatePicker/WdatePicker.js"></script>
 	<!---文件上传中文配置--->
 
 	<script>
@@ -163,7 +160,7 @@
           success: function(data) {
             if (data.status == '1') {
               toastr.success('', data.msg);
-
+              window.location.href=_ctx+"/news/list"; 
             } else
               toastr.error('', data.msg);
           },
@@ -173,17 +170,6 @@
         });
       }
 
-    });
-
-    $('#newsTime').datetimepicker({
-      language: 'zh-CN',
-      weekStart: 1,
-      todayBtn: 1,
-      autoclose: 1,
-      todayHighlight: 1,
-      startView: 2,
-      forceParse: 0,
-      showMeridian: 1
     });
   </script>
 </body>
