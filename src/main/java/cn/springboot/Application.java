@@ -10,10 +10,12 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import cn.springboot.config.datasource.DynamicDataSourceRegister;
 
 @Import({ DynamicDataSourceRegister.class })
+@EnableTransactionManagement
 @ServletComponentScan
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
