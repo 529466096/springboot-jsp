@@ -22,7 +22,8 @@ import org.slf4j.LoggerFactory;
  * @author 王鑫 
  * @date Mar 24, 2017 7:42:45 PM  
  */
-@WebFilter(urlPatterns = "/*", filterName = "XSSCheck", initParams = { @WebInitParam(name = "securityconfig", value = "/*") })
+//@WebFilter(urlPatterns = "/*", filterName = "XSSCheck", initParams = { @WebInitParam(name = "securityconfig", value = "/*") })
+@SuppressWarnings("ALL")
 public class XSSCheckFilter implements Filter {
 
     private static Logger log = LoggerFactory.getLogger(XSSCheckFilter.class);
@@ -46,7 +47,6 @@ public class XSSCheckFilter implements Filter {
 
     /******************** xss攻击防注入参数 end ************************/
 
-    @SuppressWarnings("rawtypes")
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain filterChain) throws IOException, ServletException {
         Enumeration params = req.getParameterNames();
         HttpServletRequest request = (HttpServletRequest) req;

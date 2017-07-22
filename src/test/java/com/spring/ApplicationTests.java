@@ -1,7 +1,8 @@
 package com.spring;
 
-import java.util.Calendar;
-
+import cn.springboot.Application;
+import cn.springboot.model.simple.News;
+import cn.springboot.service.simple.NewsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -10,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import cn.springboot.Application;
-import cn.springboot.model.simple.News;
-import cn.springboot.service.NewsService;
+import java.util.Calendar;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)

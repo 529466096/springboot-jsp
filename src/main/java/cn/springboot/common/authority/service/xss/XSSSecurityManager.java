@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
  * @author 王鑫 
  * @date Mar 24, 2017 7:45:22 PM  
  */
+@SuppressWarnings("ALL")
 public class XSSSecurityManager {
 
     private static final Logger log = LoggerFactory.getLogger(XSSSecurityManager.class);
@@ -51,7 +52,6 @@ public class XSSSecurityManager {
      * @param config
      *            配置参数
      */
-    @SuppressWarnings("rawtypes")
     public static void init(FilterConfig config) {
 
         log.debug("XSSSecurityManager init(FilterConfig config) begin");
@@ -87,7 +87,6 @@ public class XSSSecurityManager {
      * @return ture or false
      * @throws DocumentException
      */
-    @SuppressWarnings("unchecked")
     public static boolean initConfig(String path) throws DocumentException {
 
         log.debug("XSSSecurityManager.initConfig(String path) begin");
