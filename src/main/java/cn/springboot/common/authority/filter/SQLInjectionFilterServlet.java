@@ -23,8 +23,8 @@ import org.slf4j.LoggerFactory;
  * @author 王鑫 
  * @date Mar 24, 2017 7:42:29 PM  
  */
-//@WebFilter(urlPatterns = "/*", filterName = "SQLInjection", initParams = { @WebInitParam(name = "regularExpression", value = "(?:')|(?:--)|(/\\*(?:.|[\\n\\r])*?\\*/)|" + "(\\b(select|update|and|or|delete|insert|trancate|char|into|substr|ascii|declare|exec|count|master|into|drop|execute)\\b)") })
-@SuppressWarnings("ALL")
+@WebFilter(urlPatterns = "/*", filterName = "SQLInjection", initParams = { @WebInitParam(name = "regularExpression", value = "(?:')|(?:--)|(/\\*(?:.|[\\n\\r])*?\\*/)|" + "(\\b(select|update|and|or|delete|insert|trancate|char|into|substr|ascii|declare|exec|count|master|into|drop|execute)\\b)") })
+@SuppressWarnings("all")
 public class SQLInjectionFilterServlet implements Filter {
 
     private static final Logger log = LoggerFactory.getLogger(SQLInjectionFilterServlet.class);

@@ -22,8 +22,8 @@ import org.slf4j.LoggerFactory;
  * @author 王鑫 
  * @date Mar 24, 2017 7:42:45 PM  
  */
-//@WebFilter(urlPatterns = "/*", filterName = "XSSCheck", initParams = { @WebInitParam(name = "securityconfig", value = "/*") })
-@SuppressWarnings("ALL")
+@WebFilter(urlPatterns = "/*", filterName = "XSSCheck", initParams = { @WebInitParam(name = "securityconfig", value = "/*") })
+@SuppressWarnings("all")
 public class XSSCheckFilter implements Filter {
 
     private static Logger log = LoggerFactory.getLogger(XSSCheckFilter.class);

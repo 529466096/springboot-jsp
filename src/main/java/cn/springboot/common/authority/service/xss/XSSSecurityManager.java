@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  * @author 王鑫 
  * @date Mar 24, 2017 7:45:22 PM  
  */
-@SuppressWarnings("ALL")
+@SuppressWarnings("all")
 public class XSSSecurityManager {
 
     private static final Logger log = LoggerFactory.getLogger(XSSSecurityManager.class);
