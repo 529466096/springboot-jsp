@@ -1,16 +1,8 @@
 package cn.springboot.service.simple.impl;
 
-import cn.springboot.common.constants.Constants;
-import cn.springboot.common.exception.BusinessException;
-import cn.springboot.config.datasource.DataSourceEnum;
-import cn.springboot.config.datasource.TargetDataSource;
-import cn.springboot.config.table.FactoryAboutKey;
-import cn.springboot.config.table.TablesPKEnum;
-import cn.springboot.mapper.simple.NewsMapper;
-import cn.springboot.model.simple.News;
-import cn.springboot.service.simple.NewsService;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+import java.util.Calendar;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Calendar;
-import java.util.List;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
+import cn.springboot.common.constants.Constants;
+import cn.springboot.common.exception.BusinessException;
+import cn.springboot.common.util.UUIDUtil;
+import cn.springboot.config.datasource.DataSourceEnum;
+import cn.springboot.config.datasource.TargetDataSource;
+import cn.springboot.mapper.simple.NewsMapper;
+import cn.springboot.model.simple.News;
+import cn.springboot.service.simple.NewsService;
 
 /** 
  * @Description 新闻接口实现类
@@ -38,7 +39,8 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public boolean addNews(News news) {
         if (news != null) {
-            news.setId(FactoryAboutKey.getPK(TablesPKEnum.T_NEWS));
+            //news.setId(FactoryAboutKey.getPK(TablesPKEnum.T_NEWS));
+            news.setId(UUIDUtil.getRandom32PK());
             news.setCreateTime(Calendar.getInstance().getTime());
             int flag = newsMapper.insert(news);
             if (StringUtils.equals(news.getTitle(), "a"))

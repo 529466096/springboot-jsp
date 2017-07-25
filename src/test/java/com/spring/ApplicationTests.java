@@ -24,17 +24,20 @@ public class ApplicationTests {
 
     @Test
     public void addNews() {
-        log.info("# 生产测试数据");
-        News news = null;
-        for (int i = 1; i < 1001; i++) {
-            news = new News();
-            news.setTitle("db_2_" + i);
-            news.setDescription("db_2_" + i);
-            news.setAddress("db_2_" + i);
-            news.setNewsTime(Calendar.getInstance().getTime());
-            newsService.addNews(news);
+        try {
+            log.info("# 生产测试数据");
+            News news = null;
+            for (int i = 1; i < 1001; i++) {
+                news = new News();
+                news.setTitle("test_" + i);
+                news.setDescription("test_" + i);
+                news.setAddress("test_" + i);
+                news.setNewsTime(Calendar.getInstance().getTime());
+                newsService.addNews(news);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
     }
 
 }
