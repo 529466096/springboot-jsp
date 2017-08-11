@@ -1,5 +1,8 @@
 package cn.springboot.common.authority.service.xss;
 
+import java.io.FileNotFoundException;
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -14,6 +17,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.ResourceUtils;
 
 /** 
  * @Description 安全过滤配置管理类
@@ -55,11 +59,9 @@ public class XSSSecurityManager {
     public static void init(FilterConfig config) {
 
         log.debug("XSSSecurityManager init(FilterConfig config) begin");
-        // 初始化过滤配置文件
-        String xssPath = config.getServletContext().getRealPath("/") + config.getInitParameter("securityconfig");
-
         // 初始化安全过滤配置
         try {
+            URL xssPath = ResourceUtils.getURL(config.getInitParameter("securityconfig"));
             if (initConfig(xssPath)) {
                 // 生成匹配器
                 XSS_PATTERN = Pattern.compile(REGEX);
@@ -73,7 +75,10 @@ public class XSSSecurityManager {
                 throw new RuntimeException("初始化XSS配置失败!");
             }
         } catch (DocumentException e) {
-            log.debug("安全过滤配置文件xss_security_config.xml加载异常");
+            log.error("安全过滤配置文件xss_security_config.xml加载异常");
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            log.error("安全过滤配置文件xss_security_config.xml加载异常");
             e.printStackTrace();
         }
         log.debug("XSSSecurityManager init(FilterConfig config) end");
@@ -87,9 +92,9 @@ public class XSSSecurityManager {
      * @return ture or false
      * @throws DocumentException
      */
-    public static boolean initConfig(String path) throws DocumentException {
+    public static boolean initConfig(URL path) throws DocumentException {
 
-        log.debug("XSSSecurityManager.initConfig(String path) begin");
+        log.debug("XSSSecurityManager.initConfig(URL path) begin");
         Element superElement = new SAXReader().read(path).getRootElement();
         XSSSecurityConfig.IS_CHECK_HEADER = new Boolean(getEleValue(superElement, XSSSecurityConstants.IS_CHECK_HEADER));
         XSSSecurityConfig.IS_CHECK_PARAMETER = new Boolean(getEleValue(superElement, XSSSecurityConstants.IS_CHECK_PARAMETER));
