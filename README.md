@@ -13,7 +13,7 @@
 + 运行cn.springboot.Application当中的main方法；
 + 浏览器访问工程查看示例效果；
 
-欢迎[交流讨论](http://git.oschina.net/wangxinforme/springboot-mybatis/issues)
 
-<b>[胡桃夹子GitHub](http://git.oschina.net/wangxinforme "Vincent Git@OSC主页")</b>
+[GitHub](https://github.com/wangxinforme) [issues](https://github.com/wangxinforme/springboot-mybatis/issues)
 
+![Markdown](http://wx4.sinaimg.cn/mw690/005OXyHfgy1fh6evxykwhj30ag0as3zv.jpg)
