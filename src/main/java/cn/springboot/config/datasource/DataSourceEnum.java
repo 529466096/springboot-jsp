@@ -7,7 +7,8 @@ package cn.springboot.config.datasource;
  */
 public enum DataSourceEnum {
 
-                            DB1("db1", "数据源1"), DB2("db2", "数据源2");
+    DB1("db1", "数据源1"),
+    DB2("db2", "数据源2");
 
     private DataSourceEnum(String key, String description) {
         this.key = key;

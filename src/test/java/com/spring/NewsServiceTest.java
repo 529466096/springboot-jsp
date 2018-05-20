@@ -15,9 +15,9 @@ import java.util.Calendar;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
-public class ApplicationTests {
+public class NewsServiceTest {
 
-    private static final Logger log = LoggerFactory.getLogger(ApplicationTests.class);
+    private static final Logger log = LoggerFactory.getLogger(NewsServiceTest.class);
 
     @Autowired
     private NewsService newsService;

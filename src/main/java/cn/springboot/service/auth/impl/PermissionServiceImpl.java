@@ -1,9 +1,9 @@
 package cn.springboot.service.auth.impl;
 
 import cn.springboot.common.exception.BusinessException;
+import cn.springboot.config.pk.FactoryAboutKey;
+import cn.springboot.config.pk.TableEnum;
 import cn.springboot.config.shiro.vo.PermissionVo;
-import cn.springboot.config.table.FactoryAboutKey;
-import cn.springboot.config.table.TablesPKEnum;
 import cn.springboot.mapper.auth.PermissionMapper;
 import cn.springboot.model.auth.Permission;
 import cn.springboot.service.auth.PermissionService;
@@ -124,7 +124,7 @@ public class PermissionServiceImpl implements PermissionService {
         Permission p = permissionMapper.findPermissionByKey(permission.getKey());
         if(p!=null)
             throw new BusinessException("permission-fail","#创建菜单出错;菜单Key已经存在,key="+permission.getKey());
-        permission.setId(FactoryAboutKey.getPK(TablesPKEnum.T_SYS_PERMISSION));
+        permission.setId(FactoryAboutKey.getPK(TableEnum.T_SYS_PERMISSION));
         permissionMapper.insert(permission);
     }
 

@@ -14,10 +14,10 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import cn.springboot.common.constants.Constants;
-import cn.springboot.common.exception.BusinessException;
-import cn.springboot.common.util.UUIDUtil;
 import cn.springboot.config.datasource.DataSourceEnum;
 import cn.springboot.config.datasource.TargetDataSource;
+import cn.springboot.config.pk.FactoryAboutKey;
+import cn.springboot.config.pk.TableEnum;
 import cn.springboot.mapper.simple.NewsMapper;
 import cn.springboot.model.simple.News;
 import cn.springboot.service.simple.NewsService;
@@ -39,12 +39,11 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public boolean addNews(News news) {
         if (news != null) {
-            //news.setId(FactoryAboutKey.getPK(TablesPKEnum.T_NEWS));
-            news.setId(UUIDUtil.getRandom32PK());
+            news.setId(FactoryAboutKey.getPK(TableEnum.T_NEWS));
             news.setCreateTime(Calendar.getInstance().getTime());
             int flag = newsMapper.insert(news);
-            if (StringUtils.equals(news.getTitle(), "a"))
-                throw new BusinessException("001", "测试事务回溯");
+            // if (StringUtils.equals(news.getTitle(), "a"))
+            // throw new BusinessException("001", "测试事务回溯");
             if (flag == 1)
                 return true;
             else
