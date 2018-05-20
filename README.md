@@ -6,11 +6,11 @@
 
 + 包含框架有：SpringBoot、SpringMVC、MyBaits、Bootstrap3、Druid；
 + 集成示例有：增删改查及分页;防XSS、SQL注入；
-+ 前端采用的jsp、springboot结jsp支持不是很友好，编译打包只有是war；
++ 前端采用的jsp、springboot对jsp支持不是很友好，建议编译打包成war；
 
 #### 数据库配置
 + 默认是连接的MySQL数据库，支持多数据源，分别连接的db1,db2 ，在项目工程的db文件夹下有数据库初始化脚本；
-+ 如果切换至sqlite数据库时，则application.properties当中的mybatis分页插件得改成支持sqlite；
++ 如果切换至sqlite数据库时，则application.properties当中的mybatis分页插件需要改成支持sqlite；
 
 #### 示例启动
   
