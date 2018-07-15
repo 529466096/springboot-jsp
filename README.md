@@ -23,5 +23,3 @@
 + 采用命令：java -jar springboot-jsp.war , 即可运行；
 
 [GitHub](https://github.com/wangxinforme) [issues](https://github.com/wangxinforme/springboot-jsp/issues)
-
-![Markdown](http://wx4.sinaimg.cn/mw690/005OXyHfgy1fh6evxykwhj30ag0as3zv.jpg)
